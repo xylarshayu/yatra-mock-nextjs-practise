@@ -10,3 +10,10 @@ export interface Hotel {
 }
 
 export type City = string;
+
+export interface SearchHotelsParams {
+  city: City;
+  checkin: string;
+  checkout: string;
+  guests: number;
+}

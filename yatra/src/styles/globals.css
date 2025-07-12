@@ -3,6 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --max-section-width: 1200px;
+  --header-height: 40px;
+  --footer-height: 30px;
+  --page-min-height: calc(100svh - var(--header-height) - var(--footer-height));
 }
 
 @theme inline {
@@ -10,6 +14,10 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --spacing-maxwidth: var(--max-section-width);
+  --spacing-header-height: var(--header-height);
+  --spacing-footer-height: var(--footer-height);
+  --spacing-page-height: var(--page-min-height);
 }
 
 @media (prefers-color-scheme: dark) {
