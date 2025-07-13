@@ -15,5 +15,9 @@ export interface SearchHotelsParams {
   city: City;
   checkin: string;
   checkout: string;
-  guests: number;
+  guests: string;
 }
+
+export type FormErrors = {
+  [K in keyof SearchHotelsParams]?: string;
+};
