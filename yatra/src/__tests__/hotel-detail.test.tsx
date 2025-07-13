@@ -18,6 +18,7 @@ describe('Hotel Detail Page', () => {
     pathname: '/hotels/[id]',
     query: { id: 'hotel-1' },
     asPath: '/hotels/hotel-1',
+    isReady: true,
     push: jest.fn(),
   };
 
@@ -38,17 +39,16 @@ describe('Hotel Detail Page', () => {
     render(<HotelDetail />);
 
     expect(await screen.findByText(/hotel not found/i)).toBeInTheDocument();
-    // Ensure no hotel details are rendered
     expect(screen.queryByRole('button', { name: /book now/i })).not.toBeInTheDocument();
   });
 
-  it('renders hotel details correctly, including facilities', () => {
+  it('renders hotel details correctly, including facilities', async () => {
     render(<HotelDetail />);
 
-    expect(screen.getByRole('heading', { name: exampleHotel.name })).toBeInTheDocument();
-    expect(screen.getByText(`₹${exampleHotel.price} per night`)).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: exampleHotel.name })).toBeInTheDocument();
+    expect(screen.getByText(`₹${exampleHotel.price}`)).toBeInTheDocument();
     expect(screen.getByText(exampleHotel.city)).toBeInTheDocument();
-    expect(screen.getByText(exampleHotel.rating)).toBeInTheDocument();
+    expect(screen.getByText(`Rating: ${exampleHotel.rating} / 5`)).toBeInTheDocument();
     expect(screen.getByText(exampleHotel.description)).toBeInTheDocument();
 
     // Check for facilities
@@ -57,11 +57,11 @@ describe('Hotel Detail Page', () => {
     }
   });
 
-  it('shows a booking confirmation alert on button click', () => {
+  it('shows a booking confirmation alert on button click', async () => {
     window.alert = jest.fn();
     render(<HotelDetail />);
 
-    const bookNowButton = screen.getByRole('button', { name: /book now/i });
+    const bookNowButton = await screen.findByRole('button', { name: /book now/i });
     fireEvent.click(bookNowButton);
 
     expect(window.alert).toHaveBeenCalledWith(`Booking initiated for ${exampleHotel.name}!`);
