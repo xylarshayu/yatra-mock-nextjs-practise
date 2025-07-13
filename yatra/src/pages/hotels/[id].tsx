@@ -66,7 +66,7 @@ export default function Hotel() {
       <main className="py-20 mx-auto text-center max-w-maxwidth min-h-page-height">
         <h1 className="text-4xl font-bold text-gray-800 dark:text-white">Hotel Not Found</h1>
         <p className="mt-4 text-gray-600 dark:text-gray-400">
-          We couldn't find a hotel with the specified ID.
+          We couldn&apos;t find a hotel with the specified ID.
         </p>
         <Link href="/" className="inline-block mt-8 text-lg my-button">
           ← Back to Search

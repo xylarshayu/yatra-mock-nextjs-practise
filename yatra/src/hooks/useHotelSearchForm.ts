@@ -28,6 +28,7 @@ export const useHotelSearchForm = (initialState: SearchHotelsParams) => {
      if (errors.city) {
       setErrors((prev) => {
         const { city, ...rest } = prev;
+        console.warn("City error cleared for city: ", city);
         return rest;
       });
     }

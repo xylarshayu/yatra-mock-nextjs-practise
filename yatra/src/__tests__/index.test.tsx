@@ -2,7 +2,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import Home from '@/pages/index';
 import { useRouter } from 'next/router';
-import cities from '@/data/cities.json';
 
 // Mocking external dependencies, eg. APIs and router
 jest.mock('next/router', () => ({

@@ -1,5 +1,5 @@
 
-import { render, screen, fireEvent, within } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import Hotels from '@/pages/hotels/index';
 import { useRouter } from 'next/router';
 import { fetchHotels } from '@/lib/api';

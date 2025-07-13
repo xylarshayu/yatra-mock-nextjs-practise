@@ -85,6 +85,7 @@ export const AutocompleteInput = ({
               key={item}
               onClick={() => handleSuggestionClick(item)}
               role="option"
+              aria-selected={item === value}
               className="px-4 py-2 cursor-pointer hover:bg-indigo-50"
             >
               {item}
