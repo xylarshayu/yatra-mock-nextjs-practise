@@ -1,12 +1,8 @@
-import { useRouter } from "next/router";
-import { useState, useRef, useEffect, ChangeEvent, FormEvent } from "react";
 import { FormField } from "@/components/formField";
 import { AutocompleteInput } from "@/components/autocomplete";
-import { validateSearchForm, getTodayString } from "@/utils";
+import { getTodayString } from "@/utils";
 import { useHotelSearchForm } from "@/hooks/useHotelSearchForm";
 import cities from "@/data/cities.json";
-import { SearchHotelsParams, FormErrors } from "@/types";
-
 export default function Home() {
   const { formData, errors, handleChange, handleCityChange, handleSubmit } =
     useHotelSearchForm({
